@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import abort
+from flask import abort, make_response
 
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
@@ -22,9 +22,11 @@ PEOPLE = {
     }
 }
 
+#read all person
 def read_all():
     return list(PEOPLE.values())
 
+#create a person
 def create(person):
     lname = person.get('lname')
     fname = person.get('fname')
@@ -42,7 +44,8 @@ def create(person):
             406,
             f"Person with last name {lname} already exists",
         )
-    
+
+##read the person    
 def read_one(lname):
     if lname in PEOPLE:
         return PEOPLE[lname]
@@ -50,3 +53,26 @@ def read_one(lname):
         abort(
             404, f"Person with last name {lname} not found"
         )
+
+
+##update person
+def update(lname, person):
+    if lname in PEOPLE:
+            PEOPLE[lname]["fname"] = person.get("fname", PEOPLE[lname]["fname"])
+            PEOPLE[lname]["timestamp"] = get_timestamp()
+            return PEOPLE[lname]
+    else:
+        abort(
+            404, f"Person with last name {lname} not found")
+
+##delete person
+def delete(lname):
+    if lname in PEOPLE:
+        del PEOPLE[lname]
+        return make_response(
+            f"{lname} successfully deleted", 200
+        )
+    else:
+        abort(
+            404, f"Person with last name {lname} not found"
+            )
