@@ -1,4 +1,4 @@
-# Create a Flask project and adding endpoints and connect them to a SQLite database.
+# Creating a Flask project and adding endpoints and connecting them to a SQLite database.
 
 * Build a base Flask project with a REST API
 * Handle HTTP requests with Connexion
