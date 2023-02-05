@@ -34,8 +34,8 @@ def create(person):
 
     if lname and lname not in PEOPLE:
         PEOPLE[lname] = { 
-            "fname": fname,
             "lname": lname,
+            "fname": fname,
             "timestamp": get_timestamp(),
         }
         return PEOPLE[lname], 201

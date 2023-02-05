@@ -1,4 +1,3 @@
----
 openapi: 3.0.0
 info:
   title: RP Flask REST API
@@ -46,19 +45,28 @@ paths:
         content:
           application/json:
             schema:
-              x-body-name: person
-              $ref: "#/components/schemas/Person"
-    responses:
-      "201":
-        description: Successfully created person
-  "/people/{lname}":
+              type: object
+              properties:
+                fname:
+                  type: string
+                lname:
+                  type: string
+      responses:
+        "201":
+          description: Successfully created person 
+  /people/{lname}:
     get:
       operationId: people.read_one
       tags:
         - People
       summary: Read one person
       parameters:
-        - $ref: "#/components/parameters/lname"
+        - name: lname
+          description: Last name of the person to get
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: Successfully read person
@@ -68,7 +76,12 @@ paths:
       operationId: people.update
       summary: Update a person
       parameters:
-        - $ref: "#/components/parameters/lname"
+        - name: lname
+          description: Last name of the person to get
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: Successfully updated person
@@ -76,15 +89,26 @@ paths:
         content:
           application/json:
             schema:
-              x-body-name: person
-              $ref: "#/components/schemas/Person"
+              type: object
+              required:
+                - lname
+              properties:
+                fname:
+                  type: string
+                lname:
+                  type: string
     delete:
       tags:
         - People
       operationId: "people.delete"
       summary: "Delete a person"
       parameters:
-        - $ref: "#/components/parameters/lname"
+        - name: lname
+          description: Last name of the person to get
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: "Successfully deleted person"
