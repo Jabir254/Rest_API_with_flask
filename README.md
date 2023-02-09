@@ -1,5 +1,6 @@
 # Creating a Flask project and adding endpoints and connecting them to a SQLite database.
-## Part **one**
+    
+  ## Part **One**
 * Build a base Flask project with a REST API
 * Handle HTTP requests with Connexion
 * Define API endpoints using the OpenAPI specification
