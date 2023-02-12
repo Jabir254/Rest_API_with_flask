@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from config import db,ma
+from marshmallow_sqlalchemy import fields
 
 class Note(db.Model):
     __tablename__ = 'note'
@@ -38,6 +39,8 @@ class PersonSchema(ma.SQLAlchemyAutoSchema):
         load_instance =True
         sqla_session = db.session
         include_relationships = True
+    
+    notes = fields.Nested(NoteSchema, many=True)
 
 person_schema= PersonSchema()
 people_schema= PersonSchema(many=True)
