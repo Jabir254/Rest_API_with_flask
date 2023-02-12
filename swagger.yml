@@ -24,6 +24,13 @@ components:
       required: true
       schema:
         type: string
+    note_id:
+      name:"note_id"
+      description:"ID of the note"
+      in: path
+      required: true
+      schema:
+      type: string
 paths:
   /people:
     get:
