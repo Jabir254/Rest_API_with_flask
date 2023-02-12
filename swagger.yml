@@ -77,6 +77,17 @@ paths:
       responses:
         "200":
           description: Successfully read person
+    /notes/{note_id}:
+    get:
+      operationId: "notes.read_one"
+      tags:
+        - Notes
+      summary: "Read one note"
+      parameters:
+        - $ref: "#/components/parameters/note_id"
+      responses:
+        "200":
+          description: "Successfully read one note"
     put:
       tags:
         - People
