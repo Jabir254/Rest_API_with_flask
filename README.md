@@ -1,6 +1,6 @@
 # Creating a Flask project and adding endpoints and connecting them to a SQLite database.
     
-  ## Part **One**
+   ## Part **One**
 * Build a base Flask project with a REST API
 * Handle HTTP requests with Connexion
 * Define API endpoints using the OpenAPI specification
@@ -14,7 +14,7 @@
 * Leverage the Marshmallow library to serialize data
 * Connect your REST API with your database
 
-  ## Part **Three**
+   ## Part **Three**
 
 * Work with multiple tables in a database
 * Create one-to-many fields in your database
