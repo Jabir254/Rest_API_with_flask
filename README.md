@@ -13,3 +13,11 @@
 * Use SQLAlchemy to save Python objects to your database
 * Leverage the Marshmallow library to serialize data
 * Connect your REST API with your database
+
+  ## Part **Three**
+
+* Work with multiple tables in a database
+* Create one-to-many fields in your database
+* Manage relationships with SQLAlchemy
+* Leverage nested schemas with Marshmallow
+* Display related objects in the front end
